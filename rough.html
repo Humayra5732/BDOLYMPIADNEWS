@@ -1,0 +1,26 @@
+<?php
+include('login.php');
+include('ContactUs.html');
+error_reporting(0);
+
+?>
+<?php
+if($_GET['submit']){
+$rn = $_GET['name'];
+$sn = $_GET['email'];
+$cl = $_GET['suggestions'];
+if($rn!="" && $sn!="" && $cl!="")
+{
+$query = " INSERT INTO CONTACTUS VALUES ('$rn', '$sn',' $cl')";
+$data = mysqli_query($con , $query);
+ if($data){
+ 	echo "Your information is submitted ! Thank you for your feedback!";
+ }
+}
+else
+{
+	echo "All Fields are required";
+}
+}
+
+?>
